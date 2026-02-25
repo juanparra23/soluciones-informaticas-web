@@ -1,9 +1,8 @@
 import React from 'react'
 
-interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {}
+type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement>;
 
-const Select: React.FC<SelectProps> = ({ className = '', children, ...props }) => {
+const Select = ({ className = "", children, ...props }: SelectProps) => {
   return (
     <select
       {...props}
@@ -20,7 +19,7 @@ const Select: React.FC<SelectProps> = ({ className = '', children, ...props }) =
     >
       {children}
     </select>
-  )
-}
+  );
+};
 
-export default Select
+export default Select;

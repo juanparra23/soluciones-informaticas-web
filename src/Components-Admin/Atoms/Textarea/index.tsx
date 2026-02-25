@@ -1,9 +1,8 @@
 import React from 'react'
 
-interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-const Textarea: React.FC<TextareaProps> = ({ className = '', ...props }) => {
+const Textarea = ({ className = "", ...props }: TextareaProps) => {
   return (
     <textarea
       {...props}
@@ -20,7 +19,7 @@ const Textarea: React.FC<TextareaProps> = ({ className = '', ...props }) => {
         ${className}
       `}
     />
-  )
-}
+  );
+};
 
-export default Textarea
+export default Textarea;

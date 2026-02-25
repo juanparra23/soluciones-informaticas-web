@@ -21,14 +21,15 @@ const index = ({ children }: { children: ReactNode }) => {
 
       <div className="pt-20">{children}</div>
 
-      {/* ✅ Footer aquí */}
+     
       <Footer />
 
-      {/* ✅ botón flotante siempre por encima */}
-      <WhatsAppFloat
-        phone={573137955864}
-        message="Hola, estoy interesado en sus servicios."
+     
+     <WhatsAppFloat
+      phone="573137955864"
+      message="Hola, estoy interesado en sus servicios."
       />
+      
     </div>
   )
 }

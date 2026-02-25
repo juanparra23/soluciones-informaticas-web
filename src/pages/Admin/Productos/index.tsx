@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ProductForm from '@/Components-Admin/Molecules/ProductForm'
-import ProductsGrid from '@/Organism-Admin/ProductsGrid'
+import ProductsGrid, { Producto } from '@/Organism-Admin/ProductsGrid'
 import StatsCards from '@/Organism-Admin/StatsCards'
 
 export default function AdminProductosPage() {
   const [refreshKey, setRefreshKey] = useState(0)
-  const [products, setProducts] = useState<any[]>([])
+  const [products, setProducts] = useState<Producto[]>([])
   const [filter, setFilter] = useState<string | null>(null)
 
   return (
@@ -17,7 +17,11 @@ export default function AdminProductosPage() {
         </p>
 
         <div className="mt-6">
-          <StatsCards products={products} activeFilter={filter} onFilter={setFilter} />
+          <StatsCards
+            products={products}
+            activeFilter={filter}
+            onFilter={setFilter}
+          />
         </div>
 
         <div className="mt-6 grid grid-cols-1 xl:grid-cols-3 gap-6">
@@ -63,5 +67,4 @@ export default function AdminProductosPage() {
     </div>
   )
 }
-
 
