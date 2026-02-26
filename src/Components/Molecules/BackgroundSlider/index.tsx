@@ -2,10 +2,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "/camara.webp",
+  "/Camara.webp",
   "/domotica.webp",
   "/redes.webp",
-  "/soporte.webp",
+  "/Soporte.webp",
   "/impresora.webp",
 ];
 
