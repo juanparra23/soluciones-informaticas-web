@@ -6,7 +6,7 @@ import ValuesGrid from "@/Components/Molecules/Valuesgrid"
 export default function NosotrosSection() {
   return (
     <section className="relative w-full py-14 sm:py-16 lg:py-20">
-      {/* fondo suave (el color gris lo cambias tú en tu index si quieres) */}
+     
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-900 via-[#0b1424] to-slate-900" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

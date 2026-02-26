@@ -1,23 +1,19 @@
-
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const images = [
-  "/camara.png",
-  "/domotica.png",
-  "/redes.png",
-  "/soporte.png",
-  "/impresora.png",
+  "/camara.webp",
+  "/domotica.webp",
+  "/redes.webp",
+  "/soporte.webp",
+  "/impresora.webp",
 ];
 
 export default function BackgroundSlider() {
   const [index, setIndex] = useState(0);
-  const [showA, setShowA] = useState(true);
+  const [fade, setFade] = useState(true);
 
-  const current = images[index];
-  const next = useMemo(() => images[(index + 1) % images.length], [index]);
 
- 
   useEffect(() => {
     images.forEach((src) => {
       const img = new window.Image();
@@ -25,22 +21,30 @@ export default function BackgroundSlider() {
     });
   }, []);
 
-  
+
   useEffect(() => {
-    const t = setInterval(() => {
-      setShowA((v) => !v);
-      setIndex((prev) => (prev + 1) % images.length);
+    const interval = setInterval(() => {
+      setFade(false);
+
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % images.length);
+        setFade(true);
+      }, 400); 
+
     }, 6000);
 
-    return () => clearInterval(t);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="absolute inset-0">
-      
-      <div className={`absolute inset-0 transition-opacity duration-1000 ${showA ? "opacity-100" : "opacity-0"}`}>
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div
+        className={`absolute inset-0 transition-opacity duration-700 ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <Image
-          src={current}
+          src={images[index]}
           alt="Fondo"
           fill
           priority={index === 0}
@@ -49,18 +53,7 @@ export default function BackgroundSlider() {
         />
       </div>
 
- 
-      <div className={`absolute inset-0 transition-opacity duration-1000 ${showA ? "opacity-0" : "opacity-100"}`}>
-        <Image
-          src={next}
-          alt="Fondo"
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
-
-      
+      {/* Overlay oscuro elegante */}
       <div className="absolute inset-0 bg-black/55" />
     </div>
   );
