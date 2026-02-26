@@ -1,5 +1,3 @@
-// src/Organism-Admin/ProductsGrid/index.tsx
-
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import ProductCard from "@/Components-Admin/Molecules/ProductCard";
@@ -27,32 +25,38 @@ export default function ProductsGrid({
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    let query = supabase
-      .from("Productos")
-      .select("id, title, descripcion, category, image_url")
-      .order("id", { ascending: false });
+      let query = supabase
+        .from("Productos")
+        .select("id, title, descripcion, category, image_url")
+        .order("id", { ascending: false });
 
-    if (filter) {
-      query = query.eq("category", filter);
-    }
+      if (filter) {
+        query = query.eq("category", filter);
+      }
 
-    const { data, error } = await query;
+      const { data, error } = await query;
 
-    if (error) {
-      console.error(error);
+      if (error) {
+        console.error("Supabase error:", error);
+        setItems([]);
+        onData?.([]);
+        return;
+      }
+
+      const rows: Producto[] = Array.isArray(data) ? (data as Producto[]) : [];
+      setItems(rows);
+      onData?.(rows);
+    } catch (e) {
+      console.error("Load failed:", e);
       setItems([]);
       onData?.([]);
+    } finally {
       setLoading(false);
-      return;
     }
-
-    const rows: Producto[] = Array.isArray(data) ? (data as Producto[]) : [];
-    setItems(rows);
-    onData?.(rows);
-    setLoading(false);
-  }, [filter, onData]);
+  }, [filter]); // 👈 NO depender de onData (evita loop)
 
   const onDelete = async (id: string) => {
     const ok = window.confirm("¿Seguro que deseas eliminar este producto?");
@@ -77,8 +81,7 @@ export default function ProductsGrid({
   }, [load, refreshKey]);
 
   if (loading) return <p className="text-gray-200">Cargando productos...</p>;
-  if (!items.length)
-    return <p className="text-gray-200">No hay productos todavía.</p>;
+  if (!items.length) return <p className="text-gray-200">No hay productos todavía.</p>;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
