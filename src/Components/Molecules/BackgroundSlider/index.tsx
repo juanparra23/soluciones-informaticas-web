@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const images = [
   "/Camara.webp",
   "/domotica.webp",
-  "/redes.webp",
+  "/Redes.webp",
   "/Soporte.webp",
   "/impresora.webp",
 ];
