@@ -28,7 +28,7 @@ const Features = () => {
     },
     {
       title: "Soporte Técnico",
-      img: "/soporte.webp",
+      img: "/Soporte.webp",
       alt: "Soporte técnico",
       href: "/Servicios",
     },

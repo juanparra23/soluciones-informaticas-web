@@ -1,62 +1,67 @@
-import { useEffect, useState } from "react"
+
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 
 const images = [
-  "/camara.webp",
-  "/domotica.webp",
-  "/redes.webp",
-  "/soporte.webp",
-  "/impresora.webp",
-]
+  "/camara.png",
+  "/domotica.png",
+  "/redes.png",
+  "/soporte.png",
+  "/impresora.png",
+];
 
 export default function BackgroundSlider() {
-  const [index, setIndex] = useState(0)
-  const [loaded, setLoaded] = useState(false)
+  const [index, setIndex] = useState(0);
+  const [showA, setShowA] = useState(true);
 
+  const current = images[index];
+  const next = useMemo(() => images[(index + 1) % images.length], [index]);
 
+ 
   useEffect(() => {
-    const preloadImages = async () => {
-      await Promise.all(
-        images.map((src) => {
-          return new Promise<void>((resolve) => {
-            const img = new Image()
-            img.src = src
-            img.onload = () => resolve()
-            img.onerror = () => resolve()
-          })
-        })
-      )
-      setLoaded(true)
-    }
+    images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
 
-    preloadImages()
-  }, [])
-
-
+  
   useEffect(() => {
-    if (!loaded) return
+    const t = setInterval(() => {
+      setShowA((v) => !v);
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 6000);
 
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length)
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [loaded])
-
-  if (!loaded) return null
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
-      {/* Imagen actual */}
-      <div
-        key={index}
-        className="absolute inset-0 bg-center bg-cover transition-opacity duration-700"
-        style={{
-          backgroundImage: `url(${images[index]})`,
-        }}
-      />
+    <div className="absolute inset-0">
+      
+      <div className={`absolute inset-0 transition-opacity duration-1000 ${showA ? "opacity-100" : "opacity-0"}`}>
+        <Image
+          src={current}
+          alt="Fondo"
+          fill
+          priority={index === 0}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+
+ 
+      <div className={`absolute inset-0 transition-opacity duration-1000 ${showA ? "opacity-0" : "opacity-100"}`}>
+        <Image
+          src={next}
+          alt="Fondo"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
 
       
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/55" />
     </div>
-  )
+  );
 }
