@@ -1,7 +1,7 @@
 import React from "react"
 import ChooseCard from "@/Components/Molecules/FeaturesChoose"
 
-const PHONE = "573137955864" // ← CAMBIA ESTO
+const PHONE = "573137955864" 
 
 const CHOOSE = [
   {
