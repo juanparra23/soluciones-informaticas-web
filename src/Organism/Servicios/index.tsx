@@ -1,7 +1,7 @@
 import React from "react";
 import SplitServices from "@/Components/Molecules/SplitServices";
 import { HeroTitle3, SubText, SubText3 } from "@/Components/Atoms/Titles";
-
+import SectionHeader from "@/Components/Atoms/SectionHeader";
 const Servicio = [
   {
     title: "Camaras y Seguridad",
@@ -43,16 +43,12 @@ const Servicio = [
 export default function Servicios() {
   return (
     <div className="w-full py-16">
-      <div className="max-w-6xl mx-auto px- sm:px-6 lg:px-8 text-center mb-10 ">
-        <HeroTitle3 text3="Servicios Principales" />
-
-        <div className="mt-3 flex justify-center">
-          <span className="h-[2px] w-24 rounded-full bg-gradient-to-r from-[#0061ff] to-[#60efff]" />
-        </div>
-        <div className=" ">
-          <SubText3 text="Soluciones tecnológicas confiables diseñadas para impulsar la eficiencia y seguridad de tu empresa." />
-        </div>
-      </div>
+      <SectionHeader
+                kicker="Nuestros servicios"
+                title="Servicios"
+                subtitle="Soluciones tecnológicas confiables diseñadas para impulsar la eficiencia y seguridad de tu empresa."
+                center
+              />
       
 
       <div className="flex flex-col w-full gap-4">
