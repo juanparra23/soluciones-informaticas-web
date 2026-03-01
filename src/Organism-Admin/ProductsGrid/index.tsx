@@ -56,7 +56,7 @@ export default function ProductsGrid({
     } finally {
       setLoading(false);
     }
-  }, [filter]); // 👈 NO depender de onData (evita loop)
+  }, [filter]);  //evita loop
 
   const onDelete = async (id: string) => {
     const ok = window.confirm("¿Seguro que deseas eliminar este producto?");
