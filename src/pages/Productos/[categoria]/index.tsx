@@ -97,18 +97,18 @@ export default function ProductosPorCategoria() {
               key={p.id}
               className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1"
             >
-              {/* glow */}
+              
               <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300">
                 <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-blue-500/20 blur-3xl" />
               </div>
 
-              {/* IMAGEN */}
-              <div className="h-52 bg-black/20 overflow-hidden">
+              
+             <div className="h-52 bg-black/20 overflow-hidden flex items-center justify-center">
                 {p.image_url ? (
                   <img
                     src={p.image_url}
                     alt={p.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105 rounded-lg"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-gray-300 text-sm">
@@ -117,7 +117,6 @@ export default function ProductosPorCategoria() {
                 )}
               </div>
 
-              {/* CONTENIDO */}
               <div className="p-5">
                 <div className="flex items-start justify-between gap-3">
                   <h2 className="text-white font-semibold text-lg leading-snug">
