@@ -1,16 +1,16 @@
 import React from 'react'
 
-const index = () => {
+const HeroImage = () => {
   return (
-    <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30">
+    <div className="absolute top-20 md:top-24 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
       <img
         src="/logo-solo.png"
-        alt="Logo"
-        className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto object-contain
-                   drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]"
+        alt="Logo Soluciones Informáticas"
+        className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto object-contain
+                   drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)]"
       />
     </div>
   )
 }
 
-export default index
+export default HeroImage

@@ -27,8 +27,8 @@ const Index = () => {
     <nav className='fixed top-0 left-0 z-[1000] flex flex-row 
     w-full h-20 justify-between items-start bg-barraherramientas shadow-md'>
 
-      <div className='w-50 h-40 flex justify-start items-start ml-5'>
-        <img src='/logo-solo2.png' alt='Logo'/>
+      <div className='w-50 h-20 flex flex-col justify-center items-start ml-8 mt-2'>
+        <img src='/logo-nav.png' alt='Logo'/>
       </div>
 
       <div className='flex flex-row justify-between items-center gap-2 w-1/3'>

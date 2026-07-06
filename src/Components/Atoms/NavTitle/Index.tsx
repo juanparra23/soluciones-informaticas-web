@@ -13,8 +13,8 @@ const index = ({title = "Title", link = "/"}: Indexprops) => {
   return (
 
     <Link href={link}>
-        <div className='h-20 flex  justify-center text-gray-500  items-center hover:text-textoprincipal cursor-pointer  hover:border-b-2 hover:border-violet-600  '>
-            <h1 className='text-sm font-normal '>{title}</h1>
+        <div className='h-20 flex  justify-center text-amber-50  items-center hover:text-textoprincipal cursor-pointer  hover:border-b-2 hover:border-violet-600  '>
+            <h1 className='text-[15px] font-medium '>{title}</h1>
         </div>
     </Link>
 

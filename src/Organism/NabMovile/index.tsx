@@ -31,7 +31,7 @@ const NavMobile = () => {
       
       
       <div className="flex items-center w-44">
-        <img src="/logo-solo2.png" alt="logo" className="h-12 w-auto" />
+        <img src="/logo-nav.png" alt="logo" className="h-auto w-auto mt-2" />
       </div>
 
       

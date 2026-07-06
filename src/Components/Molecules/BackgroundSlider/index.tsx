@@ -37,15 +37,15 @@ export default function BackgroundSlider() {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
+    <div className="absolute inset-0.5 z-10 overflow-hidden">
       <div
         className={`absolute inset-0 transition-opacity duration-700 ${
-          fade ? "opacity-100" : "opacity-0"
+          fade ? "opacity-75" : "opacity-0"
         }`}
       >
         <Image
           src={images[index]}
-          alt="Fondo"
+          alt="Soluciones Informáticas Uraba"
           fill
           priority={index === 0}
           sizes="100vw"
@@ -54,7 +54,7 @@ export default function BackgroundSlider() {
       </div>
 
       {/* Overlay oscuro elegante */}
-      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-16 " />
     </div>
   );
 }
