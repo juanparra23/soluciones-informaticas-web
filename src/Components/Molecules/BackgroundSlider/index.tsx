@@ -2,11 +2,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
+  "/t.webp",
+  "/red.webp",
   "/Camara.webp",
-  "/domotica.webp",
-  "/Redes.webp",
-  "/Soporte.webp",
-  "/impresora.webp",
+  "/computadores.webp",
+  "/mantenimiento-impresora.webp",
+  "/domotica.webp"
 ];
 
 export default function BackgroundSlider() {
@@ -29,7 +30,7 @@ export default function BackgroundSlider() {
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % images.length);
         setFade(true);
-      }, 400); 
+      }, 300); 
 
     }, 6000);
 
@@ -40,7 +41,7 @@ export default function BackgroundSlider() {
     <div className="absolute inset-0.5 z-10 overflow-hidden">
       <div
         className={`absolute inset-0 transition-opacity duration-700 ${
-          fade ? "opacity-75" : "opacity-0"
+          fade ? "opacity-100" : "opacity-0"
         }`}
       >
         <Image

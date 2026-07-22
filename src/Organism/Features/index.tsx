@@ -10,31 +10,31 @@ const Features = () => {
   const features = [
     {
       title: "Cámaras de Seguridad",
-      img: "/Camara.webp",
+      img: "/Mcamara.webp",
       alt: "Cámaras de seguridad",
       href: "/Servicios",
     },
     {
       title: "Impresoras y Tóner",
-      img: "/impresora.webp",
+      img: "/Mimpresora.webp",
       alt: "Impresoras y tóner",
       href: "/Servicios",
     },
     {
       title: "Redes y Cableado",
-      img: "/Redes.webp",
+      img: "/Mcableado.webp",
       alt: "Redes y cableado",
       href: "/Servicios",
     },
     {
       title: "Soporte Técnico",
-      img: "/Soporte.webp",
+      img: "/Msoporte.webp",
       alt: "Soporte técnico",
       href: "/Servicios",
     },
     {
       title: "Alarmas y Seguridad",
-      img: "/domotica.webp",
+      img: "/Mdomotica.webp",
       alt: "Alarmas y seguridad",
       href: "/Servicios",
     },

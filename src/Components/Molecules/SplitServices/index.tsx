@@ -39,15 +39,24 @@ export default function SplitServices({
         <div className="w-full">
           <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
   
-            {/* Fondo oscuro */}
-            <div className="absolute inset-0 bg-gradient-to-br  from-slate-800/60 to-slate-900/80 rounded-xl" />
-
-            {/* Imagen */}
-            <img
-              src={img}
-              alt={alt}
-              className="relative w-full h-full object-contain p-10 transition-transform duration-700 hover:scale-105 rounded-xl"
-            />
+            <div className="w-full h-full rounded-xl bg-slate-800 p-6">
+              <div className="group relative w-full h-full overflow-hidden rounded-lg">
+                <img
+                  src={img}
+                  alt={alt}
+                  className="
+                    block
+                    w-full
+                    h-full
+                    object-cover
+                    transition-transform
+                    duration-700
+                    ease-out
+                    group-hover:scale-105
+                  "
+                />
+              </div>
+            </div>
 
           </div>
         </div>
