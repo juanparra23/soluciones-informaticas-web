@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ProductForm from '@/Components-Admin/Molecules/ProductForm'
 import ProductsGrid, { Producto } from '@/Organism-Admin/ProductsGrid'
 import StatsCards from '@/Organism-Admin/StatsCards'
+import Buttom2 from '@/Components-Admin/Atoms/Buttom2'
 
 export default function AdminProductosPage() {
   const [refreshKey, setRefreshKey] = useState(0)
@@ -11,6 +12,9 @@ export default function AdminProductosPage() {
   return (
     <div className="min-h-screen bg-[#050B18] pt-28 px-6">
       <div className="max-w-7xl mx-auto">
+        <div className="flex justify-end items-end">
+            <Buttom2 link='/Admin/promociones' title='Novedades y promociones' />
+          </div>
         <h1 className="text-3xl font-extrabold text-white">Admin · Productos</h1>
         <p className="text-gray-300 mt-2">
           Administra los productos que se ven en la página pública.

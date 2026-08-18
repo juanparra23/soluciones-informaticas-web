@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="mt-24 border-t border-white/10">
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-18">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -40,6 +40,12 @@ export default function Footer() {
             <FooterText>📞 313 795 5864</FooterText>
             <FooterText>✉solucionesinformaticas45@gmail.com</FooterText>
           </FooterColumn>
+          
+          <FooterColumn title="Ubicanos">
+            <FooterLink href="">🛡️ingrese con total tranquilidad que esta protegido </FooterLink>
+
+          </FooterColumn>
+          
 
         </div>
 
